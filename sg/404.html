@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found – Redirecting</title>
+
+  <!-- SEO -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://postfre.com/sg/">
+
+  <!-- Redirect -->
+  <meta http-equiv="refresh" content="3; url=https://postfre.com/sg/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://postfre.com/assets/favicon/favicon.ico" type="image/x-icon">
+
+  <!-- Countdown Script -->
+  <script>
+    let seconds=3;
+    function updateCountdown(){
+      const c=document.getElementById("countdown");
+      if(seconds>0){
+        c.textContent=seconds;
+        seconds--;
+        setTimeout(updateCountdown,1000);
+      }
+    }
+    window.onload=updateCountdown;
+  </script>
+</head>
+
+<body style="font-family:Arial,sans-serif;text-align:center;padding:60px;">
+  <h1>Oops! Page Not Found</h1>
+  <p>
+    This page doesn’t exist.<br>
+    You’ll be redirected to <strong>PostFre Singapore</strong> in
+    <strong><span id="countdown">3</span> seconds</strong>.
+  </p>
+  <p>
+    <a href="https://postfre.com/sg/">Click here if you are not redirected automatically.</a>
+  </p>
+</body>
+</html>
