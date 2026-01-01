@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 const navHTML=`
 <nav class="navbar">
   <div class="nav-container">
-    <a href="/sg/" class="nav-logo">PostFre</a>
+    <a href="/sg/" class="nav-logo">PostFre.com</a>
     <span class="menu-toggle">☰</span>
     <ul class="nav-menu">
       <li><a href="/sg/">HOME</a></li>
@@ -44,5 +44,6 @@ const menu=document.querySelector(".nav-menu");
 if(toggle){
   toggle.addEventListener("click",()=>menu.classList.toggle("show"));
 }
+
 
 });
