@@ -1,18 +1,28 @@
 /**********************
- * GOOGLE ANALYTICS (PostFreeSG)
+ * GOOGLE ANALYTICS (PostFre)
  **********************/
 
-// Load Google Analytics library
-const gaScript = document.createElement("script");
-gaScript.async = true;
-gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-SXB5DV2BH7";
-document.head.appendChild(gaScript);
+(function () {
 
-// Initialize Analytics after load
-gaScript.onload = () => {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
+  // Prevent double loading
+  if (window.gtagLoaded) return;
+  window.gtagLoaded = true;
 
-  gtag('js', new Date());
-  gtag('config', 'G-SXB5DV2BH7');
-};
+  // Load Google Analytics library
+  const gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-3SCJ3GZ1Q2";
+  document.head.appendChild(gaScript);
+
+  // Initialise Analytics after load
+  gaScript.onload = () => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    gtag("js", new Date());
+    gtag("config", "G-3SCJ3GZ1Q2", {
+      anonymize_ip: true
+    });
+  };
+
+})();
