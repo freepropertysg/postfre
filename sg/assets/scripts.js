@@ -1,5 +1,5 @@
 /**********************
- * GOOGLE ANALYTICS (PostFre)
+ * GOOGLE ANALYTICS 
  **********************/
 
 (function () {
@@ -26,3 +26,4 @@
   };
 
 })();
+
