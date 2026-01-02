@@ -1,0 +1,33 @@
+name: Auto Sitemap + Blog Index
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Generate SG Blog Index
+        run: node generate-blog-index.js
+
+      - name: Generate SG Sitemap
+        run: node generate-sitemap.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add sg/blog/index.html sitemap.xml
+          git commit -m "Auto update SG blog index and sitemap" || echo "No changes"
+          git push
