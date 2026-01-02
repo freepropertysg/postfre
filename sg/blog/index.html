@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-SG" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO BASICS -->
+<title>PostFre Singapore Blog — Insights & Guides</title>
+<meta name="description" content="Singapore insights blog covering buying and selling tips, jobs, services, rentals, renovation, pricing guides, and marketplace essentials. Learn and explore, 100% free on PostFre.">
+<meta name="robots" content="index, follow">
+
+<!-- FAVICON -->
+<link rel="icon" href="/sg/favicon.ico">
+
+<!-- EXTERNAL CSS -->
+<link rel="stylesheet" href="/sg/assets/style.css">
+
+<!-- SITEMAP -->
+<link rel="sitemap" type="application/xml" href="https://postfre.com/sg/sitemap.xml" />
+
+<!-- SCHEMA (AUTO CANONICAL HANDLED HERE) -->
+<script defer src="/sg/assets/schema-generator.js"></script>
+
+<style>
+/* REMOVE BULLETS — ONLY CHANGE MADE */
+.blog-list {
+  list-style: none;
+  padding-left: 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION (CENTRALISED) -->
+<div id="site-nav"></div>
+<script src="/sg/assets/header.js"></script>
+
+<!-- MAIN SECTION -->
+<main>
+
+<!-- HERO (CENTRALISED) -->
+<div id="hero"></div>
+<script src="/sg/assets/hero.js"></script>
+
+<div class="content-container">
+
+<h2>Blog</h2>
+
+<section class="blog-section">
+
+<!-- BLOG-LIST-START -->
+<ul class="blog-list">
+  <li><a href="/sg/blog/128-punggol-walk">128 Punggol Walk</a></li>
+  <li><a href="/sg/blog/70-tuas-south-ave-1-singapore-637285">70 Tuas South Ave 1 Singapore 637285</a></li>
+  <li><a href="/sg/blog/baby-belling-oven">Baby Belling Oven</a></li>
+  <li><a href="/sg/blog/core-trade">Core Trade</a></li>
+  <li><a href="/sg/blog/euhabitat">Euhabitat</a></li>
+  <li><a href="/sg/blog/high-park-residences">High Park Residences</a></li>
+  <li><a href="/sg/blog/one-shenton">One Shenton</a></li>
+  <li><a href="/sg/blog/parc-clematis">Parc Clematis</a></li>
+  <li><a href="/sg/blog/resale-renovation-package">Resale Renovation Package</a></li>
+  <li><a href="/sg/blog/the-florence-residences">The Florence Residences</a></li>
+  <li><a href="/sg/blog/where-to-duplicate-keys-near-me">Where To Duplicate Keys Near Me</a></li>
+</ul>
+<!-- BLOG-LIST-END -->
+
+</section>
+
+</div>
+
+</main>
+
+<!-- GLOBAL SCRIPTS -->
+<div id="site-ad"></div>
+<script src="/sg/assets/scripts.js"></script>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="/sg/assets/footer.js"></script>
+
+<!-- AUTO NUMBERING SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll(".blog-list li a");
+
+  links.forEach((link, index) => {
+    if (!link.textContent.match(/^\\d+\\.\\s/)) {
+      link.textContent = (index + 1) + ". " + link.textContent;
+    }
+  });
+});
+</script>
+
+</body>
+</html>
