@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-SG" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO BASICS -->
+<title>SRX X-Value — Free Property Valuation Calculator Singapore</title>
+<meta name="description" content="Use our free SRX X-Value style calculator to estimate your property value in Singapore. Simple, fast and mobile-friendly valuation tool for HDB, condos and landed homes.">
+<meta name="robots" content="index, follow">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://postfreesg.com/sitemap.xml">
+
+<!-- Scripts -->
+<script defer src="/assets/schema-generator.js"></script>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<div id="site-nav"></div>
+<script src="/assets/header.js"></script>
+
+<main>
+
+<!-- HERO -->
+<div id="hero"></div>
+<script src="/assets/hero.js"></script>
+
+<div class="content-container">
+
+<!-- ARTICLE -->
+<article class="blog-article">
+
+<h1>SRX X-Value</h1>
+
+<p>A simple, fast and practical valuation-style calculator for Singapore properties. Estimate your home value instantly using PSF and unit size.</p>
+
+<p><strong>This free valuation tool is designed to be clean, mobile-friendly and similar in function to SRX X-Value.</strong></p>
+
+<h2>What Is SRX X-Value?</h2>
+
+<p>SRX X-Value is a well-known automated valuation tool used in Singapore to estimate a property’s market value. It provides a fair price range based on past transactions, market trends and property characteristics.</p>
+
+<p>Buyers, sellers, landlords and agents commonly use it to check whether a property is priced reasonably.</p>
+
+<h2>How Property Valuation Works</h2>
+
+<p>Official valuation tools use large datasets and proprietary models. A simplified version can still give useful guidance by using:</p>
+
+<ul>
+<li>Estimated price per square foot (PSF)</li>
+<li>Unit size in square feet</li>
+<li>A reasonable market adjustment range</li>
+</ul>
+
+<p>The calculator below helps you estimate a property value based on common Singapore market pricing behaviour.</p>
+
+<h2>SRX X-Value Style Calculator</h2>
+
+<p>Enter your estimated PSF and unit size to get an instant valuation range.</p>
+
+<!-- CALCULATOR -->
+<div class="valuation-calculator">
+<form id="valuationForm">
+
+<label for="size">Unit Size (sqft)</label>
+<input type="number" id="size" min="0" required>
+
+<label for="psf">Estimated PSF (S$)</label>
+<input type="number" id="psf" min="0" required>
+
+<button type="button" onclick="calculateXValue()">Calculate</button>
+
+</form>
+
+<div id="valuationResult" class="result-box"></div>
+</div>
+
+<h2>Why Use a Property Valuation Calculator?</h2>
+
+<p>A valuation calculator helps you judge whether an asking price or offer price makes sense.</p>
+
+<ul>
+<li>Instant estimation within seconds</li>
+<li>Useful for buyers, sellers and investors</li>
+<li>Works for HDB, condo and landed properties</li>
+<li>Helps avoid overpaying</li>
+</ul>
+
+<h2>What PSF Should You Use?</h2>
+
+<p>The best PSF comes from recent transactions in the same project or nearby developments with similar characteristics.</p>
+
+<p>Using a realistic PSF gives a more reliable valuation estimate.</p>
+
+<h2>Need More Help?</h2>
+
+<p>If you need deeper analysis, comparisons or pricing guidance, feel free to reach out.</p>
+
+<p><strong>📩 Contact: info@postfreesg.com</strong></p>
+
+<!-- Recommended Posts -->
+<div id="recommended-posts"></div>
+<script src="/assets/recommended-posts.js"></script>
+
+</article>
+
+</div>
+</main>
+
+<!-- ADS & SCRIPTS -->
+<div id="site-ad"></div>
+<script src="/assets/scripts.js"></script>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="/assets/footer.js"></script>
+
+<!-- CALCULATOR SCRIPT -->
+<script>
+function calculateXValue() {
+    const size = parseFloat(document.getElementById('size').value);
+    const psf = parseFloat(document.getElementById('psf').value);
+
+    if (!size || !psf) {
+        alert('Please enter both Unit Size and PSF.');
+        return;
+    }
+
+    const estimatedValue = size * psf;
+    const lowRange = estimatedValue * 0.95;
+    const highRange = estimatedValue * 1.05;
+
+    document.getElementById('valuationResult').innerHTML =
+        `<div><strong>Estimated Property Value:</strong> S$ ${estimatedValue.toLocaleString()}</div>
+         <div><strong>Low Range:</strong> S$ ${lowRange.toLocaleString()}</div>
+         <div><strong>High Range:</strong> S$ ${highRange.toLocaleString()}</div>`;
+}
+</script>
+
+<!-- CALCULATOR STYLE -->
+<style>
+.valuation-calculator {
+    max-width: 420px;
+    padding: 10px 0;
+}
+
+.valuation-calculator label {
+    display: block;
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.valuation-calculator input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+}
+
+.valuation-calculator input[type="number"]:focus {
+    border-color: #0073aa;
+    outline: none;
+}
+
+.valuation-calculator button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.valuation-calculator button:hover {
+    background-color: #005177;
+}
+
+.result-box {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+
+</body>
+</html>

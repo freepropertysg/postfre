@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-SG" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ABSD Singapore — Additional Buyer’s Stamp Duty Guide & Free Calculator</title>
+<meta name="description" content="Understand ABSD Singapore rates, rules, and how it affects property buyers. Try our free ABSD Singapore calculator for SC, PR, foreigners, and entities.">
+<meta name="robots" content="index, follow">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://postfreesg.com/sitemap.xml">
+<script defer src="/assets/schema-generator.js"></script>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<div id="site-nav"></div>
+<script src="/assets/header.js"></script>
+
+<main>
+
+<!-- HERO -->
+<div id="hero"></div>
+<script src="/assets/hero.js"></script>
+
+<div class="content-container">
+
+<!-- ARTICLE -->
+<article class="blog-article">
+
+<h1>ABSD Singapore</h1>
+
+<p>
+Your complete guide to Additional Buyer’s Stamp Duty (ABSD) in Singapore.
+Learn how ABSD works, who it applies to, and use our free ABSD Singapore
+calculator to estimate your payable amount instantly.
+</p>
+
+<h2>What is ABSD in Singapore?</h2>
+
+<p>
+ABSD, also known as Additional Buyer’s Stamp Duty, is a tax payable on top
+of Buyer’s Stamp Duty when purchasing residential property in Singapore.
+It was introduced to keep the property market stable and sustainable.
+</p>
+
+<p>ABSD applies based on:</p>
+
+<ul>
+<li>Buyer profile (SC, SPR, foreigner, entity)</li>
+<li>Number of residential properties owned</li>
+<li>Type of buyer (individual or company)</li>
+</ul>
+
+<h2>Why ABSD Matters</h2>
+
+<p>
+Understanding ABSD helps buyers know the true upfront cost of buying a
+property. For second or third properties, ABSD can add a large amount
+to the purchase price.
+</p>
+
+<h2>Singapore ABSD Rates</h2>
+
+<p>
+ABSD rates depend on residency status and property count.
+Below is a simplified overview:
+</p>
+
+<ul>
+<li><strong>Singapore Citizens:</strong> 0% for first property, higher rates for additional properties</li>
+<li><strong>Singapore PRs:</strong> ABSD applies from the first property</li>
+<li><strong>Foreigners:</strong> Flat higher rate regardless of property count</li>
+<li><strong>Entities and Developers:</strong> Highest ABSD tier applies</li>
+</ul>
+
+<p>
+Use the calculator below to estimate your ABSD amount instantly.
+</p>
+
+<h2>ABSD Singapore Calculator</h2>
+
+<p>
+Enter your buyer profile, existing property count, and purchase price.
+</p>
+
+<!-- ABSD CALCULATOR -->
+<div class="absd-calculator">
+
+<form id="absdForm">
+
+<label for="buyerProfile">Buyer Profile:</label>
+<select id="buyerProfile">
+<option value="sc">Singapore Citizen (SC)</option>
+<option value="spr">Singapore PR (SPR)</option>
+<option value="foreigner">Foreigner</option>
+<option value="entity">Entity / Company</option>
+<option value="developer">Developer</option>
+</select>
+
+<label for="propertyCount">Number of Existing Residential Properties:</label>
+<select id="propertyCount">
+<option value="0">0 (First Property)</option>
+<option value="1">1 (Second Property)</option>
+<option value="2">2 or More (Third Property)</option>
+</select>
+
+<label for="purchasePrice">Purchase Price (S$):</label>
+<input type="number" id="purchasePrice" min="0" placeholder="e.g. 1,200,000" required>
+
+<button type="button" onclick="calculateABSD()">Calculate</button>
+
+</form>
+
+<div id="absdResult" class="result-box"></div>
+
+</div>
+<!-- END ABSD CALCULATOR -->
+
+<h2>How ABSD Affects Property Buyers</h2>
+
+<p>
+ABSD affects affordability, investment return, and long-term planning.
+Many buyers compare:
+</p>
+
+<ul>
+<li>Upgrading versus buying a second property</li>
+<li>Decoupling options</li>
+<li>Investment versus own-stay decisions</li>
+<li>New launch versus resale costs</li>
+</ul>
+
+<p>
+For investors, ABSD can reduce rental yield and extend the breakeven period.
+</p>
+
+<h2>How to Reduce or Avoid ABSD</h2>
+
+<p>
+Depending on eligibility, some legal methods may reduce ABSD exposure:
+</p>
+
+<ul>
+<li>Buying under a single name</li>
+<li>Decoupling (subject to rules and costs)</li>
+<li>Buying commercial property (no ABSD)</li>
+<li>Selling before buying another residential unit</li>
+</ul>
+
+<p>
+Always assess risks and costs before proceeding.
+</p>
+
+<h2>Get Guidance for Your Property Plans</h2>
+
+<p>
+If you need help understanding ABSD, upgrading options, or property
+planning, PostFreeSG provides practical insights for buyers and investors.
+</p>
+
+<p><strong>📩 Contact us: info@postfreesg.com</strong></p>
+
+<!-- Recommended Posts -->
+<div id="recommended-posts"></div>
+<script src="/assets/recommended-posts.js"></script>
+
+</article>
+</div>
+
+</main>
+
+<!-- ADS -->
+<div id="site-ad"></div>
+<script src="/assets/scripts.js"></script>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="/assets/footer.js"></script>
+
+<!-- CALCULATOR SCRIPT -->
+<script>
+function calculateABSD() {
+
+const profile = document.getElementById("buyerProfile").value;
+const count = parseInt(document.getElementById("propertyCount").value);
+const price = parseFloat(document.getElementById("purchasePrice").value);
+
+if (!price || price <= 0) {
+document.getElementById("absdResult").innerHTML =
+"⚠️ Please enter a valid purchase price.";
+return;
+}
+
+const rates = {
+sc: [0, 20, 30],
+spr: [5, 30, 35],
+foreigner: [60, 60, 60],
+entity: [65, 65, 65],
+developer: [65, 65, 65]
+};
+
+let rate = 0;
+
+if (profile in rates) {
+if (count === 0) rate = rates[profile][0];
+else if (count === 1) rate = rates[profile][1];
+else rate = rates[profile][2];
+}
+
+const absdAmount = price * (rate / 100);
+
+document.getElementById("absdResult").innerHTML =
+`<div><strong>ABSD Rate:</strong> ${rate}%</div>
+<div><strong>ABSD Payable:</strong> S$${absdAmount.toLocaleString()}</div>`;
+}
+</script>
+
+<!-- CALCULATOR STYLE -->
+<style>
+.absd-calculator {
+max-width: 420px;
+padding: 10px 0;
+}
+
+.absd-calculator label {
+display: block;
+margin-top: 15px;
+font-size: 15px;
+font-weight: 600;
+}
+
+.absd-calculator input,
+.absd-calculator select {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 6px;
+background-color: #fff !important;
+color: #000 !important;
+box-sizing: border-box;
+}
+
+.absd-calculator input:focus,
+.absd-calculator select:focus {
+border-color: #0073aa;
+outline: none;
+}
+
+.absd-calculator button {
+margin-top: 20px;
+padding: 10px 18px;
+background-color: #0073aa;
+color: #fff;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+font-size: 16px;
+}
+
+.absd-calculator button:hover {
+background-color: #005177;
+}
+
+.result-box {
+margin-top: 20px;
+font-size: 18px;
+font-weight: bold;
+}
+</style>
+
+</body>
+</html>
