@@ -6,8 +6,8 @@ const navHTML=`
   <div class="nav-container">
 
   <a href="/sg/" class="nav-logo" style="display:flex; flex-direction:column; line-height:1.1; text-decoration:none;">
-  <span style="font-size:22px; font-weight:700; color:#000;">PostFree</span>
-  <span style="font-size:12px; font-weight:400; color:#666;">postfre.com</span>
+  <span style="font-size:16px; font-weight:700; color:#000;">PostFree</span>
+  <span style="font-size:12px; font-weight:400; color:#666;">PostFre.com</span>
 </a>
 
 
