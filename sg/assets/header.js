@@ -1,11 +1,21 @@
-<!-- NAVIGATION CONTAINER -->
+<!-- ===============================
+     NAVIGATION CONTAINER
+================================ -->
 <div id="site-nav"></div>
 
 <style>
+/* ===== FORCE VISIBILITY (IMPORTANT) ===== */
+#site-nav{
+  display:block;
+}
+
 /* ===== NAV BAR STYLES ===== */
 .navbar{
   background:#fff;
   border-bottom:1px solid #e5e5e5;
+  position:sticky;
+  top:0;
+  z-index:9999;
 }
 
 .nav-container{
@@ -17,7 +27,7 @@
   justify-content:space-between;
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .nav-logo{
   display:flex;
   flex-direction:column;
@@ -37,7 +47,7 @@
   color:#666;
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .nav-menu{
   list-style:none;
   display:flex;
@@ -50,14 +60,16 @@
   text-decoration:none;
   color:#000;
   font-size:14px;
+  font-weight:bold;
 }
 
 .nav-menu a.active{
-  font-weight:600;
-  border-bottom:2px solid #000;
+  border:2px solid #000;
+  border-radius:6px;
+  padding:4px 8px;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 .menu-toggle{
   display:none;
   font-size:22px;
@@ -71,8 +83,13 @@
   .nav-menu{
     display:none;
     flex-direction:column;
-    gap:12px;
-    margin-top:12px;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    padding:12px 16px;
+    border-bottom:1px solid #e5e5e5;
   }
   .nav-menu.show{
     display:flex;
@@ -81,7 +98,6 @@
 </style>
 
 <script>
-// Inject NAVIGATION HTML
 document.addEventListener("DOMContentLoaded",()=>{
 
 const navHTML=`
@@ -103,31 +119,27 @@ const navHTML=`
 </nav>
 `;
 
-document.getElementById("site-nav").innerHTML=navHTML;
+document.getElementById("site-nav").innerHTML = navHTML;
 
-/* ACTIVE LINK SCRIPT (SG-SAFE) */
-const links=document.querySelectorAll(".nav-menu a");
-let current=window.location.pathname;
-
-if(current.length>1&&current.endsWith("/")){
-  current=current.slice(0,-1);
-}
+/* ===== ACTIVE LINK (SG SAFE) ===== */
+const links = document.querySelectorAll(".nav-menu a");
+let current = window.location.pathname.replace(/\/$/, "");
 
 links.forEach(link=>{
-  let href=link.getAttribute("href");
-  if(href.length>1&&href.endsWith("/")){
-    href=href.slice(0,-1);
-  }
-  if(href===current){
+  let href = link.getAttribute("href").replace(/\/$/, "");
+  if(href === current){
     link.classList.add("active");
   }
 });
 
-/* MOBILE MENU TOGGLE */
-const toggle=document.querySelector(".menu-toggle");
-const menu=document.querySelector(".nav-menu");
+/* ===== MOBILE TOGGLE ===== */
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".nav-menu");
+
 if(toggle){
-  toggle.addEventListener("click",()=>menu.classList.toggle("show"));
+  toggle.addEventListener("click",()=>{
+    menu.classList.toggle("show");
+  });
 }
 
 });
