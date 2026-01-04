@@ -7,9 +7,9 @@ const navHTML=`
 
   <a href="/sg/" class="nav-logo"
    style="display:flex; flex-direction:column; line-height:1.1; text-decoration:none; padding:4px 0;">
-  <span style="font-size:16px; font-weight:700; color:#000;">PostFree</span>
+  <span style="font-size:16px; font-weight:700; color:#000;">postfre.com</span>
   <span style="font-size:12px; font-weight:400; color:#777; letter-spacing:0.2px;">
-  postfre.com</span></a>
+  PostFree — post free ads and listings</span></a>
     <span class="menu-toggle">☰</span>
     <ul class="nav-menu">
       <li><a href="/sg/">HOME</a></li>
