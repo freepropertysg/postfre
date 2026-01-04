@@ -7,10 +7,8 @@ const navHTML=`
 
   <a href="/sg/" class="nav-logo" style="display:flex; flex-direction:column; line-height:1.1; text-decoration:none;">
   <span style="font-size:16px; font-weight:700; color:#000;">PostFree</span>
-  <span style="font-size:12px; font-weight:400; color:#666;">PostFre.com</span>
-</a>
-
-
+  <span style="font-size:12px; font-weight:400; color:#777; letter-spacing:0.2px;">
+  postfre.com</span></a>
     <span class="menu-toggle">☰</span>
     <ul class="nav-menu">
       <li><a href="/sg/">HOME</a></li>
