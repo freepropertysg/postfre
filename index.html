@@ -2,18 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-
 <title>Redirecting…</title>
 
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://postfre.com/sg/">
 
-<meta http-equiv="refresh" content="0; url=https://postfre.com/sg/">
+<style>
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+.notice {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.countdown {
+  font-weight: bold;
+}
+</style>
+
 <script>
-  window.location.replace("https://postfre.com/sg/");
+(async function () {
+  const fallback = "https://postfre.com/sg/";
+  const api = "https://ipapi.co/json/";
+
+  let countryCode = "";
+  let countryName = "your country";
+
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+
+    countryCode = (data.country_code || "").toLowerCase();
+    countryName = data.country_name || countryName;
+
+    if (!countryCode) throw new Error("No country code");
+
+    const target = `https://postfre.com/${countryCode}/`;
+
+    // Check if country page exists
+    const check = await fetch(target, { method: "HEAD" });
+
+    if (check.ok) {
+      window.location.replace(target);
+      return;
+    }
+
+  } catch (e) {
+    // silent fallback
+  }
+
+  // If page not available
+  let seconds = 5;
+  document.getElementById("msg").innerHTML =
+    `PostFre is currently not available in <strong>${countryName}</strong>.<br>
+     Redirecting to Singapore site in <span class="countdown">${seconds}</span> seconds…`;
+
+  const timer = setInterval(() => {
+    seconds--;
+    document.querySelector(".countdown").textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      window.location.replace(fallback);
+    }
+  }, 1000);
+})();
 </script>
+
+<noscript>
+<meta http-equiv="refresh" content="0; url=https://postfre.com/sg/">
+</noscript>
+
 </head>
+
 <body>
-<p>Redirecting to <a href="https://postfre.com/sg/">PostFre Singapore</a>…</p>
+<div class="notice">
+  <p id="msg">Checking availability…</p>
+</div>
 </body>
 </html>
