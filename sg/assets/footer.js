@@ -26,16 +26,26 @@ const footerHTML=`
        onmouseout="this.style.color='inherit'">Terms of Service</a>
   </p>
 
-  <!-- Stay Connected -->
-  <div class="footer-column">
-  <h2 class="footer-heading">Stay Connected</h2>
-  <p>Follow us for platform updates, new listings and useful tips.</p>
-  <p>
-    <a href="https://www.facebook.com/postfre" target="_blank" rel="noopener noreferrer">Facebook</a> |
-    <a href="https://www.instagram.com/postfreofficial/" target="_blank" rel="noopener noreferrer">Instagram</a> |
-    <a href="https://www.youtube.com/@postfre" target="_blank" rel="noopener noreferrer">YouTube</a>
+  <p style="margin:0.2rem 0;">
+  <a href="https://www.facebook.com/postfre"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Facebook</a> |
+  <a href="https://www.instagram.com/postfreofficial/"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Instagram</a> |
+  <a href="https://www.youtube.com/@postfre"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">YouTube</a>
   </p>
-  </div>
 
   <p style="margin:0.2rem 0;">
     <em id="lastUpdated"></em>
