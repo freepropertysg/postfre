@@ -7,9 +7,20 @@ const navHTML=`
 
   <a href="/sg/" class="nav-logo"
    style="display:flex; flex-direction:column; line-height:1.1; text-decoration:none; padding:4px 0;">
-  <span style="font-size:16px; font-weight:700; color:#000;">postfre.com</span>
-  <span style="font-size:11.5px; font-weight:400; color:#777; letter-spacing:0.3px;">
-  Post free ads and listings</span></a>
+  <span style="font-size:16px; font-family:Poppins, sans-serif;">
+    <span style="font-weight:600; color:#2563EB;">Post</span><span style="font-weight:600; color:#14B8A6;">Fre</span><span style="font-weight:400; color:#9CA3AF;">.com</span>
+  </span>
+  <span style="
+    font-size:11.5px;
+    font-weight:400;
+    font-family:Poppins, sans-serif;
+    color:#4B5563;
+    letter-spacing:0.3px;
+  ">
+    Post free ads and listings
+  </span>
+
+</a>
     <span class="menu-toggle">☰</span>
     <ul class="nav-menu">
       <li><a href="/sg/">HOME</a></li>
