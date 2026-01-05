@@ -5,7 +5,7 @@
 <title>Redirecting…</title>
 
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://postfre.com/sg/">
+<link rel="canonical" href="https://www.postfre.com/sg/">
 
 <style>
 body {
@@ -24,7 +24,7 @@ body {
 
 <script>
 (async function () {
-  const fallback = "https://postfre.com/sg/";
+  const fallback = "https://www.postfre.com/sg/";
   const api = "https://ipapi.co/json/";
 
   let countryCode = "";
@@ -39,7 +39,7 @@ body {
 
     if (!countryCode) throw new Error("No country code");
 
-    const target = `https://postfre.com/${countryCode}/`;
+    const target = `https://www.postfre.com/${countryCode}/`;
 
     // Check if country page exists
     const check = await fetch(target, { method: "HEAD" });
@@ -71,7 +71,7 @@ body {
 </script>
 
 <noscript>
-<meta http-equiv="refresh" content="0; url=https://postfre.com/sg/">
+<meta http-equiv="refresh" content="0; url=https://www.postfre.com/sg/">
 </noscript>
 
 </head>
