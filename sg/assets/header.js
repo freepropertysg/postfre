@@ -17,7 +17,7 @@ const navHTML=`
     color:#4B5563;
     letter-spacing:0.3px;
   ">
-    Post free ads and listings
+    Free classified ads and listings
   </span>
 
 </a>
