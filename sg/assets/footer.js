@@ -27,7 +27,7 @@ const footerHTML=`
   </p>
 
   <p style="margin:0.2rem 0;">
-  <a href="https://www.facebook.com/postfre"
+  <a href="https://www.facebook.com/postfreofficial"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
