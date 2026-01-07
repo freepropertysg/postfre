@@ -76,7 +76,7 @@ document.getElementById("site-footer").innerHTML=footerHTML;
 const updatedEl=document.getElementById("lastUpdated");
 if(updatedEl){
   const disclaimer=document.createElement("small");
-  disclaimer.textContent="Disclaimer: This page may contain sponsored ads.";
+  disclaimer.textContent="PostFre.com is an independent online classified advertising platform. We are not affiliated with, endorsed by, sponsored by, or connected to any other company, organisation, or trademark. Any similarity in names, products, or services is purely coincidental.";
   disclaimer.style.display="block";
   disclaimer.style.marginTop="0.2rem";
   updatedEl.insertAdjacentElement("afterend",disclaimer);
