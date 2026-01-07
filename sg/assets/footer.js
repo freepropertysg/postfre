@@ -8,23 +8,27 @@ const footerHTML=`
   </p>
 
   <p style="margin:0.2rem 0;">
-    <a href="https://postfre.com/sg/about/"
-       style="text-decoration:none;color:inherit;"
-       onmouseover="this.style.color='#ff6a00'"
-       onmouseout="this.style.color='inherit'">About</a> |
-    <a href="https://postfre.com/sg/contact/"
-       style="text-decoration:none;color:inherit;"
-       onmouseover="this.style.color='#ff6a00'"
-       onmouseout="this.style.color='inherit'">Contact</a> |
-    <a href="https://postfre.com/sg/privacy-policy/"
-       style="text-decoration:none;color:inherit;"
-       onmouseover="this.style.color='#ff6a00'"
-       onmouseout="this.style.color='inherit'">Privacy Policy</a> |
-    <a href="https://postfre.com/sg/terms/"
-       style="text-decoration:none;color:inherit;"
-       onmouseover="this.style.color='#ff6a00'"
-       onmouseout="this.style.color='inherit'">Terms of Service</a>
-  </p>
+  <a href="https://postfre.com/sg/about/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">About</a> |
+  <a href="https://postfre.com/sg/contact/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Contact</a> |
+  <a href="https://postfre.com/sg/privacy-policy/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Privacy Policy</a> |
+  <a href="https://postfre.com/sg/terms/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Terms of Service</a> |
+  <a href="https://postfre.com/sg/posting-guidelines/"
+     style="text-decoration:none;color:inherit;"
+     onmouseover="this.style.color='#ff6a00'"
+     onmouseout="this.style.color='inherit'">Posting Guidelines</a>
+</p>
 
   <p style="margin:0.2rem 0;">
   <a href="https://www.facebook.com/postfreofficial"
