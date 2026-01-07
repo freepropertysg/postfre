@@ -68,6 +68,18 @@ const footerHTML=`
       onload="document.querySelectorAll('script[data-exec]:not([data-ran])').forEach(s=>{let n=document.createElement('script');n.text=s.textContent;document.body.appendChild(n);s.dataset.ran=1;});">
   </p>
 
+  <p style="
+  max-width:720px;
+  margin:0.4rem auto;
+  font-size:0.75rem;
+  opacity:0.85;
+">
+  PostFre.com is an independent online classified advertising platform.
+  We are not affiliated with, endorsed by, sponsored by, or connected to
+  any other company, organisation, or trademark. Any similarity in names,
+  products, or services is purely coincidental.
+</p>
+
 </footer>
 `;
 
