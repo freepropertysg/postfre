@@ -75,9 +75,9 @@ const footerHTML=`
   opacity:0.85;
 ">
   PostFre.com is an independent online classified advertising platform.
-  We are not affiliated with, endorsed by, sponsored by, or connected to
-  any other company, organisation, or trademark. Any similarity in names,
-  products, or services is purely coincidental.
+  We are not affiliated with, endorsed by, sponsored by or connected to
+  any other company, organisation or trademark. Any similarity in names,
+  products or services is purely coincidental.
 </p>
 
 </footer>
