@@ -80,6 +80,17 @@ const footerHTML=`
   products or services is purely coincidental.
 </p>
 
+<p style="
+    max-width:720px;
+    margin:0.2rem auto;
+    font-size:0.75rem;
+    opacity:0.85;
+  ">
+    Listings are posted by users. PostFre does not endorse or verify any listing.
+    To report a listing or request removal, please contact us at
+    <a href="mailto:admin@postfre.com">admin@postfre.com</a>.
+  </p>
+
 </footer>
 `;
 
