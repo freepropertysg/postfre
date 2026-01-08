@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-SG" dir="ltr">
+<html lang="en-MY" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- SEO BASICS -->
-<title>Singapore Blog — Insights & Guides | PostFre</title>
-<meta name="description" content="Singapore insights blog covering buying and selling tips, jobs, services, rentals, renovation, pricing guides and marketplace essentials on PostFre.">
+<title>Malaysia Blog — Insights & Guides | PostFre</title>
+<meta name="description" content="Malaysia insights blog covering buying and selling tips, jobs, services, rentals, renovation, pricing guides and marketplace essentials on PostFre.">
 <meta name="robots" content="index, follow">
 
 <!-- FAVICON -->
@@ -22,10 +22,9 @@
 <script defer src="/assets/schema-generator.js"></script>
 
 <style>
-/* REMOVE BULLETS — ONLY CHANGE MADE */
-.blog-list {
-  list-style: none;
-  padding-left: 0;
+.blog-list{
+  list-style:none;
+  padding-left:0;
 }
 </style>
 </head>
@@ -48,16 +47,16 @@
 <h2>Blog</h2>
 
 <p>
-Read guides and insights on property, jobs, services, rentals, and the Singapore marketplace.
+Read guides and insights on property, jobs, services, rentals, and the Malaysia marketplace.
 </p>
 
 <section class="blog-section">
 
 <!-- BLOG-LIST-START -->
 <ul class="blog-list">
-  <li><a href="/sg/blog/absd-singapore">Absd Singapore</a></li>
-  <li><a href="/sg/blog/rental-yield-calculator-singapore">Rental Yield Calculator Singapore</a></li>
-  <li><a href="/sg/blog/srx-x-value">Srx X Value</a></li>
+  <li><a href="/my/blog/rental-yield-calculator-malaysia">Rental Yield Calculator Malaysia</a></li>
+  <li><a href="/my/blog/property-buying-guide-malaysia">Property Buying Guide Malaysia</a></li>
+  <li><a href="/my/blog/jobs-market-trends-malaysia">Jobs Market Trends Malaysia</a></li>
 </ul>
 <!-- BLOG-LIST-END -->
 
@@ -77,12 +76,11 @@ Read guides and insights on property, jobs, services, rentals, and the Singapore
 
 <!-- AUTO NUMBERING SCRIPT -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".blog-list li a");
-
-  links.forEach((link, index) => {
-    if (!link.textContent.match(/^\\d+\\.\\s/)) {
-      link.textContent = (index + 1) + ". " + link.textContent;
+document.addEventListener("DOMContentLoaded",()=>{
+  const links=document.querySelectorAll(".blog-list li a");
+  links.forEach((link,index)=>{
+    if(!/^\d+\.\s/.test(link.textContent)){
+      link.textContent=(index+1)+". "+link.textContent;
     }
   });
 });
