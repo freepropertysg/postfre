@@ -37,10 +37,10 @@ const navHTML=`
     <span class="menu-toggle">☰</span>
     <ul class="nav-menu">
       <li><a href="${base}/">HOME</a></li>
-      <li><a href="${base}/about/">ABOUT</a></li>
-      <li><a href="${base}/listings/">LISTINGS</a></li>
+      <li><a href="/about/">ABOUT</a></li>
+      <li><a href="/listings/">LISTINGS</a></li>
       <li><a href="${base}/blog/">BLOG</a></li>
-      <li><a href="${base}/contact/">CONTACT</a></li>
+      <li><a href="/contact/">CONTACT</a></li>
     </ul>
   </div>
 </nav>
@@ -62,8 +62,6 @@ links.forEach(link=>{
 /* MOBILE MENU TOGGLE */
 const toggle=document.querySelector(".menu-toggle");
 const menu=document.querySelector(".nav-menu");
-if(toggle){
-  toggle.addEventListener("click",()=>menu.classList.toggle("show"));
-}
+toggle&&toggle.addEventListener("click",()=>menu.classList.toggle("show"));
 
 });
