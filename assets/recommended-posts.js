@@ -1,10 +1,27 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-  // Only activate on SG blog post pages
-  if(!window.location.pathname.startsWith("/sg/blog/"))return;
+  /* Blog pages only */
+
+  const path = window.location.pathname;
+
+  const countryMatch = path.match(/^\/([a-z]{2})\/blog\//);
+  const isRootBlog = path.startsWith("/blog/");
+
+  if(!countryMatch && !isRootBlog) return;
 
   /* ---------------------------------------
-     1. Inject CSS dynamically
+     1. Decide blog base URL
+  ---------------------------------------- */
+  let blogBase = "/blog/";
+  let blogLinkMatch = "/blog/";
+
+  if(countryMatch){
+    blogBase = `/${countryMatch[1]}/blog/`;
+    blogLinkMatch = `/${countryMatch[1]}/blog/`;
+  }
+
+  /* ---------------------------------------
+     2. Inject CSS dynamically
   ---------------------------------------- */
   const css=`
     .recommended-posts-section,
@@ -44,7 +61,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   document.head.appendChild(styleTag);
 
   /* ---------------------------------------
-     2. Recommended Posts HTML
+     3. Recommended Posts HTML
   ---------------------------------------- */
   const recommendedHTML=`
     <section class="recommended-posts-section">
@@ -54,30 +71,30 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     3. FAQ HTML (STATIC, SEO-SAFE)
+     4. FAQ HTML (GLOBAL, NEUTRAL)
   ---------------------------------------- */
   const faqHTML=`
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <strong>Is PostFre Singapore free to use?</strong>
-        <p>Yes. PostFre Singapore is completely free to use. You can post and browse classified listings in Singapore without any platform fees or subscriptions.</p>
+        <strong>Is PostFre free to use?</strong>
+        <p>Yes. PostFre is completely free to use. You can post and browse classified listings without any platform fees or subscriptions.</p>
       </div>
 
       <div class="faq-item">
-        <strong>Who can use PostFre Singapore?</strong>
-        <p>PostFre Singapore is open to everyone, including individuals, freelancers, small businesses, property owners, and service providers in Singapore.</p>
+        <strong>Who can use PostFre?</strong>
+        <p>PostFre is open to everyone, including individuals, freelancers, small businesses, property owners, and service providers.</p>
       </div>
 
       <div class="faq-item">
-        <strong>What types of listings are allowed on PostFre Singapore?</strong>
-        <p>PostFre Singapore allows a wide range of listings such as jobs, services, property, rentals, items for sale, and other general classified advertisements.</p>
+        <strong>What types of listings are allowed on PostFre?</strong>
+        <p>PostFre allows a wide range of listings such as jobs, services, property, rentals, items for sale, and other general classified advertisements.</p>
       </div>
 
       <div class="faq-item">
         <strong>Do I need to create an account to post listings?</strong>
-        <p>No account registration is required. PostFre Singapore is designed to keep posting simple and accessible for all users.</p>
+        <p>No account registration is required. PostFre is designed to keep posting simple and accessible for all users.</p>
       </div>
 
       <div class="faq-item">
@@ -90,35 +107,37 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     4. Insert Recommended + FAQ
+     5. Insert Recommended + FAQ
   ---------------------------------------- */
+  const blockHTML = recommendedHTML + faqHTML;
   const placeholder=document.getElementById("recommended-posts");
+
   if(placeholder){
-    placeholder.insertAdjacentHTML("beforeend",recommendedHTML+faqHTML);
+    placeholder.insertAdjacentHTML("beforeend",blockHTML);
   }else{
     const footer=document.querySelector("#site-footer");
     if(footer){
-      footer.insertAdjacentHTML("beforebegin",recommendedHTML+faqHTML);
+      footer.insertAdjacentHTML("beforebegin",blockHTML);
     }else{
-      document.body.insertAdjacentHTML("beforeend",recommendedHTML+faqHTML);
+      document.body.insertAdjacentHTML("beforeend",blockHTML);
     }
   }
 
   /* ---------------------------------------
-     5. Fetch SG blog index & generate posts
+     6. Fetch blog index & generate posts
   ---------------------------------------- */
   (async function(){
     try{
-      const res=await fetch("https://postfre.com/sg/blog/");
+      const res=await fetch(blogBase);
       const html=await res.text();
       const doc=new DOMParser().parseFromString(html,"text/html");
 
-      const posts=[...doc.querySelectorAll("a[href*='/sg/blog/']")]
+      const posts=[...doc.querySelectorAll(`a[href*='${blogLinkMatch}']`)]
         .map(a=>({
           title:a.textContent.trim(),
           url:a.href.replace(/\/$/,"")
         }))
-        .filter(p=>!p.url.endsWith("/sg/blog"));
+        .filter(p=>!p.url.endsWith(blogBase.replace(/\/$/,"")));
 
       const currentURL=window.location.href.replace(/\/$/,"");
 
