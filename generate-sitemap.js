@@ -29,10 +29,10 @@ function urlBlock(loc, priority, changefreq) {
 let urls = [];
 
 /* ==============================
-   GLOBAL ROOT PAGES
+   GLOBAL PAGES (REAL CONTENT)
+   (root / is EXCLUDED intentionally)
 ================================ */
 urls.push(
-  urlBlock(`${SITE_URL}/`, "1.0", "weekly"),
   urlBlock(`${SITE_URL}/about/`, "0.8", "monthly"),
   urlBlock(`${SITE_URL}/listings/`, "0.9", "daily"),
   urlBlock(`${SITE_URL}/contact/`, "0.6", "monthly"),
@@ -43,32 +43,37 @@ urls.push(
 
 /* ==============================
    AUTO-DETECT COUNTRY FOLDERS
-   (any 2-letter folder: sg, my, bd, us, etc.)
+   (sg, my, bd, us, etc.)
 ================================ */
 fs.readdirSync(ROOT_DIR, { withFileTypes: true })
-  .filter(dir => dir.isDirectory())
-  .map(dir => dir.name)
-  .filter(name => /^[a-z]{2}$/.test(name))
+  .filter(
+    d =>
+      d.isDirectory() &&
+      /^[a-z]{2}$/.test(d.name) && // only 2-letter folders
+      d.name !== "node_modules"
+  )
   .forEach(country => {
+    const code = country.name;
+    const countryPath = path.join(ROOT_DIR, code);
+    const blogDir = path.join(countryPath, "blog");
 
-    // country homepage
+    // Country homepage
     urls.push(
-      urlBlock(`${SITE_URL}/${country}/`, "0.9", "weekly")
+      urlBlock(`${SITE_URL}/${code}/`, "0.9", "weekly")
     );
 
-    // country blog index
-    const blogDir = path.join(ROOT_DIR, country, "blog");
+    // Blog index
     if (fs.existsSync(blogDir)) {
       urls.push(
-        urlBlock(`${SITE_URL}/${country}/blog/`, "0.7", "weekly")
+        urlBlock(`${SITE_URL}/${code}/blog/`, "0.7", "weekly")
       );
 
-      // blog posts
+      // Blog posts
       fs.readdirSync(blogDir).forEach(file => {
         if (file.endsWith(".html") && file !== "index.html") {
           const slug = file.replace(".html", "");
           urls.push(
-            urlBlock(`${SITE_URL}/${country}/blog/${slug}`, "0.6", "monthly")
+            urlBlock(`${SITE_URL}/${code}/blog/${slug}`, "0.6", "monthly")
           );
         }
       });
@@ -86,4 +91,4 @@ ${urls.join("")}
 
 fs.writeFileSync(path.join(ROOT_DIR, "sitemap.xml"), sitemap);
 
-console.log("✅ Sitemap generated correctly (global + auto-detected countries)");
+console.log("✅ Sitemap generated automatically for all country folders");
