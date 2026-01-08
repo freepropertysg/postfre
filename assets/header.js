@@ -32,7 +32,7 @@ const navHTML=`
     <ul class="nav-menu">
       <li><a href="/sg/">HOME</a></li>
       <li><a href="/about/">ABOUT</a></li>
-      <li><a href="/sg/listings/">LISTINGS</a></li>
+      <li><a href="/listings/">LISTINGS</a></li>
       <li><a href="/sg/blog/">BLOG</a></li>
       <li><a href="/contact/">CONTACT</a></li>
     </ul>
