@@ -8,23 +8,23 @@ const footerHTML=`
   </p>
 
   <p style="margin:0.2rem 0;">
-  <a href="https://postfre.com/sg/about/"
+  <a href="https://postfre.com/about/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">About</a> |
-  <a href="https://postfre.com/sg/contact/"
+  <a href="https://postfre.com/contact/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Contact</a> |
-  <a href="https://postfre.com/sg/privacy-policy/"
+  <a href="https://postfre.com/privacy-policy/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Privacy Policy</a> |
-  <a href="https://postfre.com/sg/terms/"
+  <a href="https://postfre.com/terms/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Terms of Service</a> |
-  <a href="https://postfre.com/sg/posting-guidelines/"
+  <a href="https://postfre.com/posting-guidelines/"
      style="text-decoration:none;color:inherit;"
      onmouseover="this.style.color='#ff6a00'"
      onmouseout="this.style.color='inherit'">Posting Guidelines</a>
