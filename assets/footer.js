@@ -4,7 +4,7 @@ const footerHTML=`
 <footer style="text-align:center;font-size:0.9rem;">
 
   <p style="margin:0.2rem 0;">
-    © <span id="copyYear"></span> PostFre — Free Classifieds Platform
+    © <span id="copyYear"></span> PostFre — Classifieds Platform
   </p>
 
   <p style="margin:0.2rem 0;">
