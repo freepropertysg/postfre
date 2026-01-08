@@ -92,7 +92,7 @@ const footerHTML=`
   ">
     Listings are posted by users. PostFre does not endorse or verify any listing.
     To report a listing or request removal, please contact us at
-    <a href="mailto:admin@postfre.com">admin@postfre.com</a>.
+    <a href="mailto:admin@postfre.com">admin@postfre.com</a>
   </p>
 
 </footer>
