@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
-     INLINE CSS (ALIGNED WITH NAV)
+     INLINE CSS (ALIGN ONLY)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
@@ -31,19 +31,25 @@ document.addEventListener("DOMContentLoaded", () => {
     display:flex;
     align-items:center;
   }
+
   .pf-country-input{
     display:flex;
     align-items:center;
-    height:100%;
-    padding:6px 10px;
+    gap:6px;
+
+    /* ALIGN WITH MENU LINKS */
+    font-size:16px;
+    font-weight:bold;
+    line-height:1;
+    padding:4px 8px;
+
     border:1px solid #ccc;
     border-radius:4px;
-    cursor:pointer;
     background:#fff;
-    gap:6px;
-    font-size:14px;
+    cursor:pointer;
     white-space:nowrap;
   }
+
   .pf-country-dropdown{
     position:absolute;
     top:110%;
@@ -55,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     box-shadow:0 4px 14px rgba(0,0,0,.12);
     z-index:9999;
   }
+
   .pf-country-search{
     width:100%;
     padding:6px 8px;
@@ -64,21 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
     font-size:14px;
     box-sizing:border-box;
   }
+
   .pf-country-list{
     max-height:240px;
     overflow-y:auto;
   }
+
   .pf-country-item{
     padding:6px 10px;
     cursor:pointer;
   }
+
   .pf-country-item:hover{
     background:#f3f4f6;
   }
 
   /* Mobile */
-  .nav-menu.show .pf-country-wrap{
-    width:100%;
+  @media (max-width: 768px){
+    .pf-country-input{
+      font-size:18px;
+      padding:10px 0;
+      border-width:1px;
+    }
   }
   `;
   document.head.appendChild(style);
