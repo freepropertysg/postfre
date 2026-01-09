@@ -10,23 +10,23 @@ const footerHTML=`
   <p style="margin:0.2rem 0;">
   <a href="https://postfre.com/about/"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">About</a> |
   <a href="https://postfre.com/contact/"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Contact</a> |
   <a href="https://postfre.com/privacy-policy/"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Privacy Policy</a> |
   <a href="https://postfre.com/terms/"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Terms of Service</a> |
   <a href="https://postfre.com/posting-guidelines/"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Posting Guidelines</a>
 </p>
 
@@ -35,19 +35,19 @@ const footerHTML=`
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Facebook</a> |
   <a href="https://www.instagram.com/postfreofficial/"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">Instagram</a> |
   <a href="https://www.youtube.com/@postfre"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#2563EB'"
+     onmouseover="this.style.color='#0000EE'"
      onmouseout="this.style.color='inherit'">YouTube</a>
   </p>
 
