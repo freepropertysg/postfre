@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   label.textContent = `${flag(div.dataset.code)} ${div.dataset.name}`;
                   location.href=target;
                 }else{
-                  alert(`PostFre is currently not available in ${div.dataset.name}. If you would like to post ads for ${div.dataset.name}, please email us at info@postfre.com.`);
+                  alert(`PostFre is currently not available in ${div.dataset.name}. If you would like to post ads for ${div.dataset.name}, please email us at info@postfre.com`);
                 }
               });
           };
