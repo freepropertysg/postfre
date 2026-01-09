@@ -98,9 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${base}/blog/">BLOG</a></li>
         <li><a href="/contact/">CONTACT</a></li>
 
+        <!-- Country selector -->
         <li class="pf-country-wrap">
           <div class="pf-country-input" id="pfCountryInput">
-            🌍 <span id="pfCountryLabel">Select country</span>
+            <span id="pfCountryLabel">Select country</span>
           </div>
           <div class="pf-country-dropdown" id="pfCountryDropdown" hidden>
             <input class="pf-country-search" id="pfCountrySearch" placeholder="Search country">
@@ -154,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", () => dropdown.hidden = true);
 
-  // Detect visitor country
+  // Detect visitor country → show FLAG + NAME
   fetch("https://ipapi.co/json/")
     .then(r=>r.json())
     .then(d=>{
