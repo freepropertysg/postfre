@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${base}/blog/">BLOG</a></li>
         <li><a href="/contact/">CONTACT</a></li>
 
-        <li class="pf-country-wrap">
+        <li>
           <div class="pf-country-input" id="pfCountryInput">
             <span id="pfCountryLabel">🌍 Select country</span>
           </div>
