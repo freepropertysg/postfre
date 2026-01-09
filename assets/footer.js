@@ -35,19 +35,19 @@ const footerHTML=`
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#ff6a00'"
+     onmouseover="this.style.color='#2563EB'"
      onmouseout="this.style.color='inherit'">Facebook</a> |
   <a href="https://www.instagram.com/postfreofficial/"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#ff6a00'"
+     onmouseover="this.style.color='#2563EB'"
      onmouseout="this.style.color='inherit'">Instagram</a> |
   <a href="https://www.youtube.com/@postfre"
      target="_blank"
      rel="noopener noreferrer"
      style="text-decoration:none;color:inherit;"
-     onmouseover="this.style.color='#ff6a00'"
+     onmouseover="this.style.color='#2563EB'"
      onmouseout="this.style.color='inherit'">YouTube</a>
   </p>
 
