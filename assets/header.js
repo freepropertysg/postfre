@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
-     INLINE CSS (ALIGN ONLY)
+     INLINE CSS (DYNAMIC WIDTH + ALIGN ONLY)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
@@ -33,21 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   .pf-country-input{
-    display:flex;
+    display:inline-flex;
     align-items:center;
     gap:6px;
 
-    /* ALIGN WITH MENU LINKS */
+    /* MATCH MENU TYPOGRAPHY */
     font-size:16px;
     font-weight:bold;
     line-height:1;
+
+    /* MATCH MENU HEIGHT */
     padding:4px 8px;
 
+    /* KEEP ORIGINAL DESIGN */
     border:1px solid #ccc;
     border-radius:4px;
     background:#fff;
     cursor:pointer;
     white-space:nowrap;
+
+    /* DYNAMIC WIDTH */
+    width:auto;
+    max-width:none;
+    min-width:unset;
   }
 
   .pf-country-dropdown{
@@ -87,11 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* Mobile */
-  @media (max-width: 768px){
+  @media (max-width:768px){
     .pf-country-input{
       font-size:18px;
       padding:10px 0;
-      border-width:1px;
     }
   }
   `;
