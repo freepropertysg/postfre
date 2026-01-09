@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
-     INLINE CSS (DYNAMIC WIDTH + ALIGN ONLY)
+     INLINE CSS (BORDER REMOVED ONLY)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
@@ -37,22 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
     align-items:center;
     gap:6px;
 
-    /* MATCH MENU TYPOGRAPHY */
     font-size:16px;
     font-weight:bold;
     line-height:1;
-
-    /* MATCH MENU HEIGHT */
     padding:4px 8px;
 
-    /* KEEP ORIGINAL DESIGN */
-    border:1px solid #ccc;
+    border:none;              /* ✅ BORDER REMOVED */
     border-radius:4px;
     background:#fff;
     cursor:pointer;
     white-space:nowrap;
 
-    /* DYNAMIC WIDTH */
     width:auto;
     max-width:none;
     min-width:unset;
@@ -94,11 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
     background:#f3f4f6;
   }
 
-  /* Mobile */
   @media (max-width:768px){
     .pf-country-input{
       font-size:18px;
       padding:10px 0;
+      border:none;            /* ✅ BORDER REMOVED (MOBILE) */
     }
   }
   `;
