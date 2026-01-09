@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Country selector -->
         <li class="pf-country-wrap">
           <div class="pf-country-input" id="pfCountryInput">
-            <span id="pfCountryLabel">Select country</span>
+            <span id="pfCountryLabel">🌍 Select country</span>
           </div>
           <div class="pf-country-dropdown" id="pfCountryDropdown" hidden>
             <input class="pf-country-search" id="pfCountrySearch" placeholder="Search country">
@@ -155,15 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("click", () => dropdown.hidden = true);
 
-  // Detect visitor country → show FLAG + NAME
-  fetch("https://ipapi.co/json/")
-    .then(r=>r.json())
-    .then(d=>{
-      if(d.country_code){
-        label.textContent = `${flag(d.country_code)} ${d.country_name}`;
-      }
-    })
-    .catch(()=>{});
+  // Restore saved country ONLY if user selected before
+  if (saved) {
+    fetch("https://restcountries.com/v3.1/alpha/" + saved)
+      .then(r => r.json())
+      .then(d => {
+        if (d[0]) {
+          label.textContent = `${flag(saved)} ${d[0].name.common}`;
+        }
+      })
+      .catch(()=>{});
+  }
 
   // Load countries dynamically
   fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
@@ -184,6 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
             fetch(target,{method:"HEAD"})
               .then(res=>{
                 if(res.ok){
+                  localStorage.setItem("pf_country", div.dataset.code);
+                  label.textContent = `${flag(div.dataset.code)} ${div.dataset.name}`;
                   location.href=target;
                 }else{
                   alert(`PostFre is currently not available in ${div.dataset.name}. Email us if you want to post ads for this country.`);
