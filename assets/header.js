@@ -22,26 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
-     INLINE CSS (ISOLATED)
+     INLINE CSS (ALIGNED WITH NAV)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
-  .pf-country-wrap{position:relative;font-size:14px}
+  .pf-country-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+  }
   .pf-country-input{
-    border:1px solid #ccc;
+    display:flex;
+    align-items:center;
+    height:100%;
     padding:6px 10px;
+    border:1px solid #ccc;
     border-radius:4px;
     cursor:pointer;
     background:#fff;
-    display:flex;
-    align-items:center;
     gap:6px;
+    font-size:14px;
     white-space:nowrap;
   }
   .pf-country-dropdown{
     position:absolute;
-    right:0;
     top:110%;
+    right:0;
     width:260px;
     background:#fff;
     border:1px solid #ccc;
@@ -68,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   .pf-country-item:hover{
     background:#f3f4f6;
+  }
+
+  /* Mobile */
+  .nav-menu.show .pf-country-wrap{
+    width:100%;
   }
   `;
   document.head.appendChild(style);
@@ -116,26 +127,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("site-nav").innerHTML = navHTML;
 
   /* =============================
-     ACTIVE LINK (FIXED)
+     ACTIVE LINK
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
   let current = location.pathname.replace(/\/$/, "") || "/";
 
   links.forEach(a => {
     let h = a.getAttribute("href").replace(/\/$/, "") || "/";
-
-    // Root HOME case
-    if (h === "/" && current === "/") {
-      a.classList.add("active");
-    }
-    // Country home (/sg)
-    else if (h === base && current === base) {
-      a.classList.add("active");
-    }
-    // Normal pages
-    else if (h === current) {
-      a.classList.add("active");
-    }
+    if (h === current) a.classList.add("active");
   });
 
   /* =============================
@@ -170,11 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (saved) {
     fetch("https://restcountries.com/v3.1/alpha/" + saved)
       .then(r => r.json())
-      .then(d => {
-        if (d[0]) {
-          label.textContent = `${flag(saved)} ${d[0].name.common}`;
-        }
-      })
+      .then(d => d[0] && (label.textContent = `${flag(saved)} ${d[0].name.common}`))
       .catch(()=>{});
   }
 
@@ -197,10 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
               .then(res=>{
                 if(res.ok){
                   localStorage.setItem("pf_country", div.dataset.code);
-                  label.textContent = `${flag(div.dataset.code)} ${div.dataset.name}`;
                   location.href=target;
                 }else{
-                  alert(`PostFre is currently not available in ${div.dataset.name}. If you would like to post ads for ${div.dataset.name}, please email us at info@postfre.com`);
+                  alert(`PostFre is currently not available in ${div.dataset.name}. Please email info@postfre.com`);
                 }
               });
           };
