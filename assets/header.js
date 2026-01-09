@@ -11,6 +11,17 @@ if (!document.getElementById("leckerli-font")) {
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =============================
+     ENSURE NAV MOUNT EXISTS
+     (PREVENTS NAV DISAPPEARING)
+  ============================== */
+  let navMount = document.getElementById("site-nav");
+  if (!navMount) {
+    navMount = document.createElement("div");
+    navMount.id = "site-nav";
+    document.body.prepend(navMount);
+  }
+
+  /* =============================
      COUNTRY BASE LOGIC
   ============================== */
   let parts = location.pathname.split("/").filter(Boolean);
@@ -29,15 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
   style.textContent = `
   .pf-country-wrap{position:relative;font-size:14px}
 
-  /* merged nav-link style */
   .pf-country-link{
     display:flex;
     align-items:center;
     padding:10px 14px;
     cursor:pointer;
     white-space:nowrap;
-    color:#111;
+    color:#333;
     text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
   }
   .pf-country-link:hover{
     background:#f3f4f6;
@@ -85,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="nav-container">
 
       <a href="${base || "/"}" class="nav-logo"
-       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+        style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
         <span style="font-size:16px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
@@ -103,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${base}/blog/">BLOG</a></li>
         <li><a href="/contact/">CONTACT</a></li>
 
-        <!-- MERGED COUNTRY MENU ITEM -->
         <li class="pf-country-wrap">
           <a href="javascript:void(0)" class="pf-country-link" id="pfCountryInput">
             <span id="pfCountryLabel">🌍 Select country</span>
@@ -120,20 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
   </nav>
   `;
 
-  document.getElementById("site-nav").innerHTML = navHTML;
+  navMount.innerHTML = navHTML;
 
   /* =============================
-     ACTIVE LINK (FIXED)
+     ACTIVE LINK
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
   let current = location.pathname.replace(/\/$/, "") || "/";
 
   links.forEach(a => {
     let h = a.getAttribute("href").replace(/\/$/, "") || "/";
-
-    if (h === "/" && current === "/") a.classList.add("active");
-    else if (h === base && current === base) a.classList.add("active");
-    else if (h === current) a.classList.add("active");
+    if (h === current || (h === "/" && current === "/")) {
+      a.classList.add("active");
+    }
   });
 
   /* =============================
@@ -193,7 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
               .then(res=>{
                 if(res.ok){
                   localStorage.setItem("pf_country", div.dataset.code);
-                  label.textContent = `${flag(div.dataset.code)} ${div.dataset.name}`;
                   location.href=target;
                 }else{
                   alert(`PostFre is currently not available in ${div.dataset.name}. If you would like to post ads for ${div.dataset.name}, please email us at info@postfre.com`);
