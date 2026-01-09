@@ -1,4 +1,3 @@
-<script>
 // Load Leckerli One font (once)
 if (!document.getElementById("leckerli-font")) {
   const l = document.createElement("link");
@@ -9,17 +8,6 @@ if (!document.getElementById("leckerli-font")) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* =============================
-     ENSURE NAV MOUNT EXISTS
-     (PREVENTS NAV DISAPPEARING)
-  ============================== */
-  let navMount = document.getElementById("site-nav");
-  if (!navMount) {
-    navMount = document.createElement("div");
-    navMount.id = "site-nav";
-    document.body.prepend(navMount);
-  }
 
   /* =============================
      COUNTRY BASE LOGIC
@@ -39,22 +27,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const style = document.createElement("style");
   style.textContent = `
   .pf-country-wrap{position:relative;font-size:14px}
-
-  .pf-country-link{
+  .pf-country-input{
+    border:1px solid #ccc;
+    padding:6px 10px;
+    border-radius:4px;
+    cursor:pointer;
+    background:#fff;
     display:flex;
     align-items:center;
-    padding:10px 14px;
-    cursor:pointer;
+    gap:6px;
     white-space:nowrap;
-    color:#333;
-    text-decoration:none;
-    font-weight:bold;
-    text-transform:uppercase;
   }
-  .pf-country-link:hover{
-    background:#f3f4f6;
-  }
-
   .pf-country-dropdown{
     position:absolute;
     right:0;
@@ -97,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="nav-container">
 
       <a href="${base || "/"}" class="nav-logo"
-        style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
         <span style="font-size:16px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
@@ -116,10 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="/contact/">CONTACT</a></li>
 
         <li class="pf-country-wrap">
-          <a href="javascript:void(0)" class="pf-country-link" id="pfCountryInput">
+          <div class="pf-country-input" id="pfCountryInput">
             <span id="pfCountryLabel">🌍 Select country</span>
-          </a>
-
+          </div>
           <div class="pf-country-dropdown" id="pfCountryDropdown" hidden>
             <input class="pf-country-search" id="pfCountrySearch" placeholder="Search country">
             <div class="pf-country-list" id="pfCountryList"></div>
@@ -131,17 +113,27 @@ document.addEventListener("DOMContentLoaded", () => {
   </nav>
   `;
 
-  navMount.innerHTML = navHTML;
+  document.getElementById("site-nav").innerHTML = navHTML;
 
   /* =============================
-     ACTIVE LINK
+     ACTIVE LINK (FIXED)
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
   let current = location.pathname.replace(/\/$/, "") || "/";
 
   links.forEach(a => {
     let h = a.getAttribute("href").replace(/\/$/, "") || "/";
-    if (h === current || (h === "/" && current === "/")) {
+
+    // Root HOME case
+    if (h === "/" && current === "/") {
+      a.classList.add("active");
+    }
+    // Country home (/sg)
+    else if (h === base && current === base) {
+      a.classList.add("active");
+    }
+    // Normal pages
+    else if (h === current) {
       a.classList.add("active");
     }
   });
@@ -179,7 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://restcountries.com/v3.1/alpha/" + saved)
       .then(r => r.json())
       .then(d => {
-        if (d[0]) label.textContent = `${flag(saved)} ${d[0].name.common}`;
+        if (d[0]) {
+          label.textContent = `${flag(saved)} ${d[0].name.common}`;
+        }
       })
       .catch(()=>{});
   }
@@ -203,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
               .then(res=>{
                 if(res.ok){
                   localStorage.setItem("pf_country", div.dataset.code);
+                  label.textContent = `${flag(div.dataset.code)} ${div.dataset.name}`;
                   location.href=target;
                 }else{
                   alert(`PostFre is currently not available in ${div.dataset.name}. If you would like to post ads for ${div.dataset.name}, please email us at info@postfre.com`);
@@ -221,4 +216,3 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
-</script>
