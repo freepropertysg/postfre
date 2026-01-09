@@ -1,3 +1,4 @@
+<script>
 // Load Leckerli One font (once)
 if (!document.getElementById("leckerli-font")) {
   const l = document.createElement("link");
@@ -27,17 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const style = document.createElement("style");
   style.textContent = `
   .pf-country-wrap{position:relative;font-size:14px}
-  .pf-country-input{
-    border:1px solid #ccc;
-    padding:6px 10px;
-    border-radius:4px;
-    cursor:pointer;
-    background:#fff;
+
+  /* merged nav-link style */
+  .pf-country-link{
     display:flex;
     align-items:center;
-    gap:6px;
+    padding:10px 14px;
+    cursor:pointer;
     white-space:nowrap;
+    color:#111;
+    text-decoration:none;
   }
+  .pf-country-link:hover{
+    background:#f3f4f6;
+  }
+
   .pf-country-dropdown{
     position:absolute;
     right:0;
@@ -98,10 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="${base}/blog/">BLOG</a></li>
         <li><a href="/contact/">CONTACT</a></li>
 
-        <li>
-          <div class="pf-country-input" id="pfCountryInput">
+        <!-- MERGED COUNTRY MENU ITEM -->
+        <li class="pf-country-wrap">
+          <a href="javascript:void(0)" class="pf-country-link" id="pfCountryInput">
             <span id="pfCountryLabel">🌍 Select country</span>
-          </div>
+          </a>
+
           <div class="pf-country-dropdown" id="pfCountryDropdown" hidden>
             <input class="pf-country-search" id="pfCountrySearch" placeholder="Search country">
             <div class="pf-country-list" id="pfCountryList"></div>
@@ -124,18 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
   links.forEach(a => {
     let h = a.getAttribute("href").replace(/\/$/, "") || "/";
 
-    // Root HOME case
-    if (h === "/" && current === "/") {
-      a.classList.add("active");
-    }
-    // Country home (/sg)
-    else if (h === base && current === base) {
-      a.classList.add("active");
-    }
-    // Normal pages
-    else if (h === current) {
-      a.classList.add("active");
-    }
+    if (h === "/" && current === "/") a.classList.add("active");
+    else if (h === base && current === base) a.classList.add("active");
+    else if (h === current) a.classList.add("active");
   });
 
   /* =============================
@@ -171,9 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://restcountries.com/v3.1/alpha/" + saved)
       .then(r => r.json())
       .then(d => {
-        if (d[0]) {
-          label.textContent = `${flag(saved)} ${d[0].name.common}`;
-        }
+        if (d[0]) label.textContent = `${flag(saved)} ${d[0].name.common}`;
       })
       .catch(()=>{});
   }
@@ -216,3 +212,4 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
+</script>
