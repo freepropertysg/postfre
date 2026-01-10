@@ -107,14 +107,42 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="nav-container">
 
       <a href="${base || "/"}" class="nav-logo"
-       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
-        <span style="font-size:16px;font-family:Poppins,sans-serif;">
-          <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
-        </span>
-        <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
-          Classified ads and listings
-        </span>
-      </a>
+   style="
+     display:flex;
+     flex-direction:column;
+     text-decoration:none;
+     padding:4px 0;
+     line-height:1.05;
+   ">
+
+  <!-- Line 1: Logo -->
+  <span style="font-size:16px;font-family:Poppins,sans-serif;">
+    <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
+  </span>
+
+  <!-- Line 2: Brand line -->
+  <span style="
+    font-size:11.2px;
+    font-weight:500;
+    font-family:Poppins,sans-serif;
+    color:#374151;
+    margin-top:-1px;
+  ">
+    Post on your own terms
+  </span>
+
+  <!-- Line 3: Descriptor -->
+  <span style="
+    font-size:10.6px;
+    font-weight:400;
+    font-family:Poppins,sans-serif;
+    color:#6B7280;
+    margin-top:-1px;
+  ">
+    Classified ads and listings
+  </span>
+
+</a>
 
       <span class="menu-toggle">☰</span>
 
