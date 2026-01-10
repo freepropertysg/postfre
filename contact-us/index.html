@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-SG">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Fire Protection & M&E | Engg-Tech SG</title>
+  <meta name="description" content="Contact Engg-Tech Singapore for certified fire protection and M&E services. Trusted since 2015. Speak to our project specialist today.">
+  <meta name="author" content="Engg-Tech Construction Pte. Ltd.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+<!-- Load CSS -->
+<link rel="stylesheet" href="/assets/style.css">
+<script defer src="/assets/schema-generator.js"></script>
+</head>
+<body id="page-top">
+<noscript>
+<div role="alert" style="background-color: #f4623a; color: #ffffff; padding: 1rem; text-align: center; font-weight: 600; font-size: 1rem;">
+    ⚠️ JavaScript is disabled. Some features of Engg-Tech.com may not work as expected. Please enable JavaScript for full functionality.
+  </div>
+</noscript>
+
+<!-- Engg-Tech Navbar -->
+<div id="site-nav"></div>
+<script src="/assets/header.js"></script>
+
+<!-- Content section -->
+<div style="padding-left: 1.5rem; padding-right: 1.5rem; box-sizing: border-box;">
+  <section>
+    <main role="main">
+      <h1 style="font-size: 2rem; position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+        Contact Engg-Tech Construction Singapore – Fire Protection & M&E
+      </h1>
+
+      <div id="contactFormPopup"
+           style="width:90%; max-width:500px; margin:2rem auto; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,0.2); font-family:sans-serif; display:flex; flex-direction:column; touch-action:none; box-sizing:border-box;">
+
+        <div id="contactFormDragger" style="width:100%; box-sizing:border-box;">
+
+          <div style="padding:14px 18px; background:#fff; color:#000; font-weight:bold; font-size:1rem; line-height:1.5; text-align:center;">
+            CONTACT US<br>
+            <span style="font-weight:normal; font-size:0.95rem;">
+              Need urgent assistance? Email us directly at
+              <a href="mailto:info@engg-tech.com" style="color:#000; text-decoration:underline;">info@engg-tech.com</a>
+            </span>
+            <p id="form-status" role="status" aria-live="polite" style="text-align:center; font-weight:bold; margin-top:0.75rem; margin-bottom:0;"></p>
+          </div>
+
+          <form id="contact-form" style="padding:1.5rem; background:#fff; box-sizing:border-box;">
+            <input type="text" name="honeypot" style="display:none;" tabindex="-1" autocomplete="off" />
+
+            <label for="name" style="position:absolute; left:-9999px;">Your Name</label>
+            <input id="name" type="text" name="name" placeholder="Your Name" required
+                   style="width:100%; padding:16px; margin-bottom:16px; font-size:1rem; border:1.5px solid #ccc; background:#F9FAFB; border-radius:4px; box-sizing:border-box;" />
+
+            <label for="email" style="position:absolute; left:-9999px;">Your Email</label>
+            <input id="email" type="email" name="email" placeholder="Your Email" required
+                   style="width:100%; padding:16px; margin-bottom:16px; font-size:1rem; border:1.5px solid #ccc; background:#F9FAFB; border-radius:4px; box-sizing:border-box;" />
+
+            <label for="message" style="position:absolute; left:-9999px;">Your Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required
+                      style="width:100%; padding:16px; margin-bottom:16px; font-size:1rem; border:1.5px solid #ccc; background:#F9FAFB; border-radius:4px; resize:vertical; box-sizing:border-box;"></textarea>
+
+            <div style="margin-bottom:16px;">
+              <label id="captcha-label" for="captcha">What is <span id="captcha-question">2 + 5</span>?</label>
+              <input type="number" id="captcha" name="captcha" placeholder="Write your answer" required aria-labelledby="captcha-label"
+                     style="width:100%; padding:16px; font-size:1rem; border:1.5px solid #ccc; background:#F9FAFB; border-radius:4px; box-sizing:border-box;" />
+            </div>
+
+            <input type="hidden" name="captchaX" value="">
+            <input type="hidden" name="captchaY" value="">
+            <input type="hidden" name="captchaAnswer" value="">
+
+            <button id="send-button" type="submit"
+                    style="width:100%; background:#000000; color:#ffffff; font-size:1.1rem; font-weight:bold; padding:16px; border:none; border-radius:4px; cursor:pointer; transition:background 0.3s; box-sizing:border-box;"
+                    onmouseover="this.style.background='#CE2029'" onmouseout="this.style.background='#000000'">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </section>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const captchaSpan = document.getElementById("captcha-question");
+  const captchaInput = document.getElementById("captcha");
+  const status = document.getElementById("form-status");
+  const sendButton = document.getElementById("send-button");
+
+  const formStart = Date.now();
+  const x = Math.floor(Math.random() * 5) + 1;
+  const y = Math.floor(Math.random() * 5) + 1;
+  const correctAnswer = x + y;
+  if (captchaSpan) {
+    captchaSpan.textContent = `${x} + ${y}`;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const honeypot = form.querySelector('input[name="honeypot"]');
+    const now = Date.now();
+    const delay = now - formStart;
+    const userAnswer = parseInt(captchaInput.value, 10);
+
+    if (honeypot.value) {
+      status.textContent = "⚠️ Spam detected.";
+      status.style.color = "red";
+      return;
+    }
+    if (delay < 3000) {
+      status.textContent = "⚠️ Submission too fast. Try again.";
+      status.style.color = "orange";
+      return;
+    }
+    if (userAnswer !== correctAnswer) {
+      status.textContent = "⚠️ Incorrect math answer.";
+      status.style.color = "orange";
+      return;
+    }
+
+    form.querySelector('input[name="captchaX"]').value = x;
+    form.querySelector('input[name="captchaY"]').value = y;
+    form.querySelector('input[name="captchaAnswer"]').value = userAnswer;
+
+    const formData = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbwkIbW2EzsoG54Adydc0UwnN34au15dm2vnn3Egfhrq69n8HiEdGUgIJQ0riPGLe5k/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(() => {
+      status.textContent = "✅ Message sent successfully!";
+      status.style.color = "green";
+      sendButton.style.display = "none";
+      form.reset();
+    })
+    .catch(err => {
+      status.textContent = "❌ Error sending message.";
+      status.style.color = "red";
+      console.error("Error:", err);
+    });
+  });
+});
+</script>
+<!-- Content section END -->
+
+<!-- Global Ads & Analytics -->
+<div id="site-ad"></div>
+<script src="/assets/scripts.js"></script>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="/assets/footer.js"></script>
+
+</body>
+</html>
