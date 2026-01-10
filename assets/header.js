@@ -111,10 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <span style="font-size:16px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
-        <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
+        <span style="font-size:11.5px;font-weight:500;font-family:Poppins,sans-serif;color:#4B5563;">
            Post on your own terms
         </span>
-        <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
+        <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
           Classified ads and listings
         </span>
       </a>
