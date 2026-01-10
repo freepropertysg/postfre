@@ -143,36 +143,5 @@
 <!-- FOOTER -->
 <div id="site-footer"></div>
 <script src="/assets/footer.js"></script>
-
-<!-- SAFE AUTO REDIRECT (ANY COUNTRY, ONLY IF AVAILABLE) -->
-<script>
-(function () {
-  // Never redirect bots
-  if (/Googlebot|Bingbot|Slurp|DuckDuckBot/i.test(navigator.userAgent)) return;
-
-  const api = "https://ipapi.co/json/";
-  const base = "https://www.postfre.com/";
-
-  fetch(api)
-    .then(r => r.json())
-    .then(d => {
-      const code = (d.country_code || "").toLowerCase();
-      if (!code) return;
-
-      const target = base + code + "/";
-
-      // Redirect ONLY if country site exists
-      fetch(target, { method: "HEAD" })
-        .then(res => {
-          if (res.ok) {
-            window.location.replace(target);
-          }
-        })
-        .catch(() => {});
-    })
-    .catch(() => {});
-})();
-</script>
-
 </body>
 </html>
