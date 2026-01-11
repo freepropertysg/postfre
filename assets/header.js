@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(c=>{
           const div=document.createElement("div");
           div.className="pf-country-item";
-          div.textContent = `${flag(c.cca2)} ${c.cca2}`;
+          div.textContent=`${flag(c.cca2)} ${c.name.common}`;
           div.dataset.code=c.cca2.toLowerCase();
           div.dataset.name=c.name.common;
 
@@ -228,4 +228,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-});
+});  
