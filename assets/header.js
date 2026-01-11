@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (saved) {
     fetch("https://restcountries.com/v3.1/alpha/" + saved)
       .then(r => r.json())
-      .then(d => d[0] && (label.textContent = `${flag(saved)} ${d[0].name.common}`))
+      .then(d => d[0] && (label.textContent = flag(saved)))
       .catch(()=>{});
   }
 
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(c=>{
           const div=document.createElement("div");
           div.className="pf-country-item";
-          div.textContent=`${flag(c.cca2)} ${c.name.common}`;
+          div.textContent=`${flag(c.cca2)} ${c.cca2}`;
           div.dataset.code=c.cca2.toLowerCase();
           div.dataset.name=c.name.common;
 
