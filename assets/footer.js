@@ -7,6 +7,10 @@ const footerHTML=`
     © <span id="copyYear"></span> PostFre — Classifieds Platform
   </p>
 
+  <p style="margin:0.15rem 0;font-size:0.8rem;opacity:0.85;">
+  Operating since 1 January 2026
+   </p>
+
   <p style="margin:0.2rem 0;">
   <a href="https://postfre.com/about/"
      style="text-decoration:none;color:inherit;"
