@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Classified Ads & Listings
         </span>
         <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
-          Post it on PostFre
+          List on PostFre
         </span>
       </a>
 
