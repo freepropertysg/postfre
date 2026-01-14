@@ -24,14 +24,12 @@ document.addEventListener("DOMContentLoaded",()=>{
      2. Inject CSS dynamically
   ---------------------------------------- */
   const css=`
-    .recommended-posts-section,
-    .faq-section{
+    .recommended-posts-section{
       margin-top:2rem;
       margin-bottom:2rem;
       padding:0!important;
     }
-    .recommended-posts-section h2,
-    .faq-section h2{
+    .recommended-posts-section h2{
       font-size:1.6rem;
       margin-bottom:1rem;
       color:#212529;
@@ -50,11 +48,6 @@ document.addEventListener("DOMContentLoaded",()=>{
       transition:color 0.2s ease;
     }
     .reco-post-link:hover{color:#ff6a00;}
-    .faq-item{margin-bottom:1rem;}
-    .faq-item strong{
-      display:block;
-      margin-bottom:0.3rem;
-    }
   `;
   const styleTag=document.createElement("style");
   styleTag.textContent=css;
@@ -71,60 +64,23 @@ document.addEventListener("DOMContentLoaded",()=>{
   `;
 
   /* ---------------------------------------
-     4. FAQ HTML (GLOBAL, NEUTRAL)
+     4. Insert Recommended Posts
   ---------------------------------------- */
-  const faqHTML=`
-    <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
-
-      <div class="faq-item">
-        <strong>Is PostFre free to use?</strong>
-        <p>Yes. PostFre is completely free to use. You can post and browse classified listings without any platform fees or subscriptions.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>Who can use PostFre?</strong>
-        <p>PostFre is open to everyone, including individuals, freelancers, small businesses, property owners, and service providers.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>What types of listings are allowed on PostFre?</strong>
-        <p>PostFre allows a wide range of listings such as jobs, services, property, rentals, items for sale, and other general classified advertisements.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>Do I need to create an account to post listings?</strong>
-        <p>No account registration is required. PostFre is designed to keep posting simple and accessible for all users.</p>
-      </div>
-
-      <div class="faq-item">
-        <strong>How can I share feedback or suggestions?</strong>
-        <p>You can email our team at
-        <a href="mailto:info@postfre.com">info@postfre.com</a>
-        so we can continue improving the platform.</p>
-      </div>
-    </section>
-  `;
-
-  /* ---------------------------------------
-     5. Insert Recommended + FAQ
-  ---------------------------------------- */
-  const blockHTML = recommendedHTML + faqHTML;
   const placeholder=document.getElementById("recommended-posts");
 
   if(placeholder){
-    placeholder.insertAdjacentHTML("beforeend",blockHTML);
+    placeholder.insertAdjacentHTML("beforeend",recommendedHTML);
   }else{
     const footer=document.querySelector("#site-footer");
     if(footer){
-      footer.insertAdjacentHTML("beforebegin",blockHTML);
+      footer.insertAdjacentHTML("beforebegin",recommendedHTML);
     }else{
-      document.body.insertAdjacentHTML("beforeend",blockHTML);
+      document.body.insertAdjacentHTML("beforeend",recommendedHTML);
     }
   }
 
   /* ---------------------------------------
-     6. Fetch blog index & generate posts
+     5. Fetch blog index & generate posts
   ---------------------------------------- */
   (async function(){
     try{
