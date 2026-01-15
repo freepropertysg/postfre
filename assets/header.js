@@ -144,14 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
 const path = location.pathname.replace(/\/$/, "") || "/";
 
 links.forEach(a => {
+  links.forEach(a => {
   const href = a.getAttribute("href").replace(/\/$/, "");
 
-  // HOME
+  // HOME (exact only)
   if (path === "/" && (href === "/" || href === base)) {
     a.classList.add("active");
   }
-  // SECTION pages (e.g. /sg/blog/*)
-  else if (href && path.startsWith(href)) {
+  // SECTION pages (exclude HOME "/")
+  else if (href && href !== "/" && path.startsWith(href)) {
     a.classList.add("active");
   }
 });
