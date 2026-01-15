@@ -141,20 +141,19 @@ document.addEventListener("DOMContentLoaded", () => {
      ACTIVE LINK (FIXED)
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
-const path = location.pathname.replace(/\/$/, "") || "/";
+  const path = location.pathname.replace(/\/$/, "") || "/";
 
-links.forEach(a => {
-  const href = a.getAttribute("href").replace(/\/$/, "");
+  links.forEach(a => {
+    const href = a.getAttribute("href").replace(/\/$/, "") || "/";
 
-  // HOME
-  if (path === "/" && (href === "/" || href === base)) {
-    a.classList.add("active");
-  }
-  // SECTION pages (e.g. /sg/blog/*)
-  else if (href && path.startsWith(href)) {
-    a.classList.add("active");
-  }
-});
+    // HOME fix
+    if (path === "/" && (href === "/" || href === base)) {
+      a.classList.add("active");
+    }
+    else if (href === path) {
+      a.classList.add("active");
+    }
+  });
 
   /* =============================
      MOBILE MENU
