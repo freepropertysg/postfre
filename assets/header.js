@@ -22,20 +22,73 @@ document.addEventListener("DOMContentLoaded", () => {
   let base = isCountry ? `/${seg}` : (saved ? `/${saved}` : "");
 
   /* =============================
-     INLINE CSS
+     INLINE CSS (BORDER REMOVED ONLY)
   ============================== */
   const style = document.createElement("style");
   style.textContent = `
-  .pf-country-wrap{position:relative;display:flex;align-items:center;}
-  .pf-country-input{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:bold;line-height:1;padding:4px 8px;border:none;border-radius:4px;background:#fff;cursor:pointer;white-space:nowrap;}
-  .pf-country-dropdown{position:absolute;top:110%;right:0;width:260px;background:#fff;border:1px solid #ccc;border-radius:4px;box-shadow:0 4px 14px rgba(0,0,0,.12);z-index:9999;}
-  .pf-country-search{width:100%;padding:6px 8px;border:none;border-bottom:1px solid #ddd;outline:none;font-size:14px;}
-  .pf-country-list{max-height:240px;overflow-y:auto;}
-  .pf-country-item{padding:6px 10px;cursor:pointer;}
-  .pf-country-item:hover{background:#f3f4f6;}
+  .pf-country-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+  }
+
+  .pf-country-input{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:16px;
+    font-weight:bold;
+    line-height:1;
+    padding:4px 8px;
+    border:none;
+    border-radius:4px;
+    background:#fff;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+
+  .pf-country-dropdown{
+    position:absolute;
+    top:110%;
+    right:0;
+    width:260px;
+    background:#fff;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-shadow:0 4px 14px rgba(0,0,0,.12);
+    z-index:9999;
+  }
+
+  .pf-country-search{
+    width:100%;
+    padding:6px 8px;
+    border:none;
+    border-bottom:1px solid #ddd;
+    outline:none;
+    font-size:14px;
+  }
+
+  .pf-country-list{
+    max-height:240px;
+    overflow-y:auto;
+  }
+
+  .pf-country-item{
+    padding:6px 10px;
+    cursor:pointer;
+  }
+
+  .pf-country-item:hover{
+    background:#f3f4f6;
+  }
+
   @media (max-width:768px){
-    .pf-country-input{font-size:18px;padding:10px 0;}
-  }`;
+    .pf-country-input{
+      font-size:18px;
+      padding:10px 0;
+    }
+  }
+  `;
   document.head.appendChild(style);
 
   /* =============================
@@ -44,12 +97,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const navHTML = `
   <nav class="navbar">
     <div class="nav-container">
-      <a href="${base || "/"}" class="nav-logo" style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+
+      <a href="${base || "/"}" class="nav-logo"
+       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
         <span style="font-size:16px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#14B8A6;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
-        <span style="font-size:10.5px;color:#6B7280;">Classified Ads & Listings</span>
-        <span style="font-size:11.5px;color:#4B5563;">List on PostFre</span>
+        <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
+          Classified Ads & Listings
+        </span>
+        <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
+          List on PostFre
+        </span>
       </a>
 
       <span class="menu-toggle">☰</span>
@@ -71,27 +130,27 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </li>
       </ul>
-    </div>
-  </nav>`;
 
-  const navMount = document.getElementById("site-nav");
-  if (navMount) navMount.innerHTML = navHTML;
+    </div>
+  </nav>
+  `;
+
+  document.getElementById("site-nav").innerHTML = navHTML;
 
   /* =============================
-     ACTIVE LINK (CORRECT)
+     ACTIVE LINK (FIXED)
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
   const path = location.pathname.replace(/\/$/, "") || "/";
 
   links.forEach(a => {
-    const href = a.getAttribute("href").replace(/\/$/, "");
+    const href = a.getAttribute("href").replace(/\/$/, "") || "/";
 
-    // HOME exact only
+    // HOME fix
     if (path === "/" && (href === "/" || href === base)) {
       a.classList.add("active");
     }
-    // Section pages (BLOG etc)
-    else if (href && href !== "/" && path.startsWith(href)) {
+    else if (href === path) {
       a.classList.add("active");
     }
   });
@@ -104,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toggle) toggle.onclick = () => menu.classList.toggle("show");
 
   /* =============================
-     COUNTRY SELECTOR
+     COUNTRY SELECTOR LOGIC
   ============================== */
   const input = document.getElementById("pfCountryInput");
   const label = document.getElementById("pfCountryLabel");
@@ -135,20 +194,24 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("https://restcountries.com/v3.1/all?fields=name,cca2")
     .then(r=>r.json())
     .then(countries=>{
-      countries.filter(c=>c.cca2)
+      countries
+        .filter(c=>c.cca2)
         .sort((a,b)=>a.name.common.localeCompare(b.name.common))
         .forEach(c=>{
           const div=document.createElement("div");
           div.className="pf-country-item";
           div.textContent=`${flag(c.cca2)} ${c.name.common}`;
+          div.dataset.code=c.cca2.toLowerCase();
+          div.dataset.name=c.name.common;
+
           div.onclick=()=>{
-            const target=BASE_URL+c.cca2.toLowerCase()+"/";
+            const target=BASE_URL+div.dataset.code+"/";
             fetch(target,{method:"HEAD"}).then(res=>{
               if(res.ok){
-                localStorage.setItem("pf_country", c.cca2.toLowerCase());
+                localStorage.setItem("pf_country", div.dataset.code);
                 location.href=target;
-              } else {
-                alert(`PostFre is currently not available in ${c.name.common}. Please email info@postfre.com`);
+              }else{
+                alert(`PostFre is currently not available in ${div.dataset.name}. Please email info@postfre.com`);
               }
             });
           };
@@ -156,10 +219,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-  search.oninput = () => {
-    const q = search.value.toLowerCase();
+  search.oninput=()=>{
+    const q=search.value.toLowerCase();
     listBox.querySelectorAll(".pf-country-item").forEach(i=>{
-      i.style.display = i.textContent.toLowerCase().includes(q) ? "block" : "none";
+      i.style.display=i.textContent.toLowerCase().includes(q)?"block":"none";
     });
   };
 
