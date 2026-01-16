@@ -141,31 +141,19 @@ document.addEventListener("DOMContentLoaded", () => {
      ACTIVE LINK (FIXED)
   ============================== */
   const links = document.querySelectorAll(".nav-menu a");
-const path = location.pathname.replace(/\/$/, "") || "/";
+  const path = location.pathname.replace(/\/$/, "") || "/";
 
-links.forEach(a => {
-  const hrefRaw = a.getAttribute("href");
-  if (!hrefRaw) return;
+  links.forEach(a => {
+    const href = a.getAttribute("href").replace(/\/$/, "") || "/";
 
-  const href = hrefRaw.replace(/\/$/, "") || "/";
-
-  // HOME
-  if (path === "/" && (href === "/" || href === base)) {
-    a.classList.add("active");
-    return;
-  }
-
-  // BLOG (index + articles)
-  if (href.endsWith("/blog") && path.startsWith(href)) {
-    a.classList.add("active");
-    return;
-  }
-
-  // Exact match (ABOUT, LISTINGS, CONTACT)
-  if (href === path) {
-    a.classList.add("active");
-  }
-});
+    // HOME fix
+    if (path === "/" && (href === "/" || href === base)) {
+      a.classList.add("active");
+    }
+    else if (href === path) {
+      a.classList.add("active");
+    }
+  });
 
   /* =============================
      MOBILE MENU
