@@ -104,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#ff5757;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
         <span style="font-size:10.5px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
-          Classified Ads & Listings
+          Classified Ads
         </span>
         <span style="font-size:11.5px;font-weight:400;font-family:Poppins,sans-serif;color:#4B5563;">
-          List on PostFre
+          Post on PostFre
         </span>
       </a>
 
