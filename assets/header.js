@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul class="nav-menu">
         <li><a href="${base || "/"}">HOME</a></li>
         <li><a href="/about/">ABOUT</a></li>
-        <li><a href="/listings/">LISTINGS</a></li>
         <li><a href="${base}/blog/">BLOG</a></li>
         <li><a href="/contact/">CONTACT</a></li>
 
