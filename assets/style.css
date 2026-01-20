@@ -147,21 +147,21 @@ body {
 }
 
 /* =======================================================
-   LISTINGS
+   CLASSIFIEDS
 ======================================================= */
-.listing-box {
+.classified-box {
   border: 1px solid #ddd;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 6px;
 }
 
-.listing-title {
+.classified-title {
   font-weight: bold;
   font-size: 1.2rem;
 }
 
-.listing-meta {
+.classified-meta {
   margin: 4px 0;
   color: #555;
 }
