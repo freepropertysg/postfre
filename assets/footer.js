@@ -83,7 +83,7 @@ const footerHTML=`
   opacity:0.85;
 ">
   PostFre.com is an independent online classified advertising platform. PostFre is a coined brand name used solely to identify this platform. It is not affiliated with, endorsed by, sponsored by or connected to any other company, website, organisation, trademark or service. Any similarity in names, words, spellings, products or services is purely coincidental.
-  <br>Listings are submitted by users and PostFre does not endorse, verify or claim ownership of such content. To report a listing or request removal, please contact <a href="mailto:admin@postfre.com" style="color:inherit;text-decoration:underline;">admin@postfre.com</a>
+  <br>All classified advertisements are submitted by users. PostFre does not endorse, verify or claim ownership of any advertisements or user-submitted content. To report an advertisement or request removal, please contact <a href="mailto:admin@postfre.com" style="color:inherit;text-decoration:underline;">admin@postfre.com</a>
 </p>
 </footer>
 `;
