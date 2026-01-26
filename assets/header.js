@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="nav-container">
 
       <a href="${base || "/"}" class="nav-logo" aria-label="Classified Ads – Post on PostFre"
-       style="display:flex;flex-direction:column;line-height:1.1;text-decoration:none;padding:4px 0;">
+       style="display:flex;flex-direction:column;line-height:1.15;text-decoration:none;padding:4px 0;">
         <span style="font-size:22.6px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#ff5757;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
