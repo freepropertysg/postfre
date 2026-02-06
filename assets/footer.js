@@ -4,7 +4,7 @@ const footerHTML=`
 <footer style="text-align:center;font-size:0.9rem;">
 
   <p style="margin:0.2rem 0;">
-    © <span id="copyYear"></span> PostFre — Classified Ads
+    © <span id="copyYear"></span> PostFre — Free Classified Ads
   </p>
 
   <p style="margin:0.15rem 0;font-size:0.8rem;opacity:0.85;">
@@ -83,7 +83,7 @@ const footerHTML=`
   opacity:0.85;
 ">
   PostFre.com is an independent online classified advertising platform. PostFre is a coined brand name used solely to identify this platform. It is not affiliated with, endorsed by, sponsored by or connected to any other company, website, organisation, trademark or service. Any similarity in names, words, spellings, products or services is purely coincidental.
-  <br>All classified advertisements are submitted by users. PostFre does not endorse, verify or claim ownership of any advertisements or user-submitted content. To report an advertisement or request removal, please contact <a href="mailto:admin@postfre.com" style="color:inherit;text-decoration:underline;">admin@postfre.com</a>
+  <br>All classified advertisements are submitted by users. PostFre does not endorse, verify or claim ownership of any advertisements or user-submitted content. To report an advertisement or request removal, please contact us.
   <br><strong>PDPA Notice:</strong> Personal data displayed on this site is provided by advertisers for informational purposes. PostFre does not independently verify such data. If you are the data owner and wish to update or remove any information, please contact
 <a href="mailto:admin@postfre.com">admin@postfre.com</a>
 </p>
