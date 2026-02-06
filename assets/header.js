@@ -98,13 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
   <nav class="navbar">
     <div class="nav-container">
 
-      <a href="${base || "/"}" class="nav-logo" aria-label="Classified Ads – Post on PostFre"
+      <a href="${base || "/"}" class="nav-logo" aria-label="Free Classified Ads – PostFre"
        style="display:flex;flex-direction:column;line-height:1.15;text-decoration:none;padding:4px 0;">
         <span style="font-size:22.57px;font-family:Poppins,sans-serif;">
           <span style="font-weight:600;color:#2563EB;font-family:'Leckerli One',cursive;">P</span><span style="font-weight:600;color:#2563EB;">ost</span><span style="font-weight:600;color:#ff5757;">Fre</span><span style="font-weight:400;color:#9CA3AF;">.com</span>
         </span>
-        <span style="font-size:9px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
-          Classified Ads · Post on PostFre
+        <span style="font-size:12px;font-weight:400;font-family:Poppins,sans-serif;color:#6B7280;">
+          Free Classified Ads
         </span>
       </a>
 
